@@ -242,7 +242,6 @@
 
 <script>
   const toggleBtn = document.getElementById("themeToggle");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const savedTheme = localStorage.getItem("theme");
 
   function applyTheme(isDark) {
@@ -250,12 +249,13 @@
     toggleBtn.textContent = isDark ? "☀️" : "🌙";
   }
 
-  // Initial load
-  if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+  // Initial load — LIGHT MODE DEFAULT
+  if (savedTheme === "dark") {
     applyTheme(true);
   } else {
     applyTheme(false);
   }
+
 
   function toggleDarkMode() {
     const isDark = !document.body.classList.contains("dark");
