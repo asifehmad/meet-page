@@ -3,367 +3,744 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Meet Asif Ahmad | Office Hours</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meet Asif Ahmad — Availability &amp; Meetings</title>
+    <meta name="description" content="Live availability for Asif Ahmad, PhD researcher in Computer Science at the University of Leicester. Find a time to talk about research and collaborations.">
+    <meta name="author" content="Asif Ahmad">
+    <link rel="canonical" href="https://meet.asifahmad.net/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Asif Ahmad">
+    <meta property="og:title" content="Meet Asif Ahmad — Availability &amp; Meetings">
+    <meta property="og:description" content="Live availability for research conversations and collaborations.">
+    <meta property="og:url" content="https://meet.asifahmad.net/">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b0e12" media="(prefers-color-scheme: dark)">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231b4d89'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='52' font-weight='700' fill='%23fff' text-anchor='middle'%3EAA%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+    <script>
+        // Applied before first paint so the correct theme renders without a flash.
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
 
     <style>
+        /* Design tokens mirror asifahmad.net so the two pages read as one site. */
         :root {
-            --bg: #f9fafb;
-            --card: #ffffff;
-            --primary: #1f2933;
-            --secondary: #4b5563;
-            --border: #e5e7eb;
-            --accent: #2563eb;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+
+            --bg: #ffffff;
+            --bg-alt: #f7f8f9;
+            --surface: #ffffff;
+            --text: #14181d;
+            --text-muted: #545d6a;
+            --text-faint: #7b8593;
+            --border: #e4e7eb;
+            --border-strong: #cdd3da;
+            --accent: #1b4d89;
+            --accent-hover: #12395f;
+            --accent-soft: rgba(27, 77, 137, 0.07);
+            --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px -12px rgba(16, 24, 40, 0.12);
+
+            --radius-sm: 4px;
+            --radius: 8px;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+            color-scheme: light;
         }
 
-        body.dark {
-            --bg: #000000;
-            --card: #0a0a0a;
-            --primary: #e5e7eb;
-            --secondary: #9ca3af;
-            --border: #1f2937;
-            --accent: #60a5fa;
+        [data-theme="dark"] {
+            --bg: #0b0e12;
+            --bg-alt: #0f1319;
+            --surface: #11161c;
+            --text: #e7eaee;
+            --text-muted: #99a3b0;
+            --text-faint: #78828f;
+            --border: #1f262f;
+            --border-strong: #2d3641;
+            --accent: #7fb0e8;
+            --accent-hover: #a5c9f3;
+            --accent-soft: rgba(127, 176, 232, 0.11);
+            --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+
+            color-scheme: dark;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--text);
             background: var(--bg);
-            color: var(--primary);
-            transition: background 0.3s, color 0.3s;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
         }
 
-        header {
-            background: var(--card);
-            border-bottom: 1px solid var(--border);
-            padding: 2rem 1rem;
-            text-align: center;
-            position: relative;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        header p {
-            margin-top: 0.5rem;
-            color: var(--secondary);
-            text-align: center;
-        }
-
-        .home-link {
-            margin-top: 0.6rem;
-            font-size: 0.9rem;
-            text-align: justify;
-        }
-
-        .home-link a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .home-link a:hover {
-            text-decoration: underline;
-        }
-
-        .toggle {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .toggle:hover {
-            background: var(--border);
-        }
-
-        main {
-            max-width: 1000px;
-            margin: auto;
-            padding: 2rem 1rem 3rem;
-        }
-
-        section {
-            background: var(--card);
-            border-radius: 10px;
-            padding: 1.8rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            text-align:justify;
-        }
-
+        h1,
         h2 {
-            margin-top: 0;
-            font-size: 1.4rem;
+            font-family: var(--font-serif);
             font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            text-wrap: balance;
         }
 
         p {
-            line-height: 1.65;
-            color: var(--secondary);
-            text-align: justify;
+            text-wrap: pretty;
         }
 
-        .calendar {
-            margin-top: 1.2rem;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border);
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            text-underline-offset: 0.18em;
+            transition: color 0.18s var(--ease);
         }
 
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 2rem;
+        ul {
+            list-style: none;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -110%);
+            z-index: 100;
+            padding: 0.7rem 1.25rem;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 0 0 var(--radius) var(--radius);
+            transition: transform 0.2s var(--ease);
+        }
+
+        .skip-link:focus {
+            transform: translate(-50%, 0);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* ---------------- Header ---------------- */
+
+        .site-header {
+            border-bottom: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .header-inner {
+            max-width: 880px;
+            margin-inline: auto;
+            padding: 0 clamp(1.25rem, 4vw, 2rem);
+            height: 64px;
+            display: flex;
             align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
         }
 
-        .qr img {
-            width: 150px;
-            height: 150px;
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text);
+            font-family: var(--font-serif);
+            font-size: 1.0625rem;
+            font-weight: 600;
         }
 
-        .qr p {
-            text-align: center;
-            font-size: 0.85rem;
-            margin-top: 0.4rem;
+        .brand:hover {
+            color: var(--text);
+            text-decoration: none;
         }
 
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.85rem;
-            color: #6b7280;
+        .brand-mark {
+            display: grid;
+            place-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: var(--radius-sm);
+            background: var(--accent);
+            color: #fff;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 700;
         }
 
-        footer a {
+        [data-theme="dark"] .brand-mark {
+            color: var(--bg);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .header-link:hover {
             color: var(--accent);
             text-decoration: none;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .icon-btn {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.18s var(--ease), border-color 0.18s var(--ease), background-color 0.18s var(--ease);
         }
 
+        .icon-btn:hover {
+            color: var(--accent);
+            border-color: var(--border-strong);
+            background: var(--accent-soft);
+        }
 
+        .icon-sun,
+        [data-theme="dark"] .icon-moon {
+            display: none;
+        }
 
-        @media (max-width: 480px) {
+        [data-theme="dark"] .icon-sun {
+            display: block;
+        }
 
-            header {
-                padding: 1.5rem 1rem;
-            }
+        /* ---------------- Layout ---------------- */
 
-            header h1 {
-                font-size: 1.5rem;
-            }
+        main {
+            max-width: 880px;
+            margin-inline: auto;
+            padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2rem) 3rem;
+        }
 
-            header p {
-                font-size: 0.95rem;
-                text-align:center;
-            }
-            
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            margin-bottom: 0.6rem;
+        }
 
-            .home-link {
-                font-size: 0.85rem;
-            }
+        .intro h1 {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.85rem;
+        }
 
-            section {
-                padding: 1.2rem;
-            }
+        .lead {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+            max-width: 62ch;
+        }
 
-            h2 {
-                font-size: 1.2rem;
-            }
+        .intro-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-top: 1.6rem;
+        }
 
-            p {
-                font-size: 0.95rem;
-            }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.15rem;
+            border: 1px solid transparent;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.18s var(--ease), border-color 0.18s var(--ease), color 0.18s var(--ease);
+        }
 
-            .info-grid {
+        .btn:hover {
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        [data-theme="dark"] .btn-primary {
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            color: #fff;
+        }
+
+        [data-theme="dark"] .btn-primary:hover {
+            color: var(--bg);
+        }
+
+        .btn-ghost {
+            background: var(--surface);
+            border-color: var(--border-strong);
+            color: var(--text);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        .panel {
+            margin-top: clamp(2.25rem, 5vw, 3.25rem);
+            padding-top: clamp(1.75rem, 4vw, 2.25rem);
+            border-top: 1px solid var(--border);
+        }
+
+        .panel h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .panel > p {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            max-width: 62ch;
+        }
+
+        .note {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.9rem;
+            font-size: 0.8125rem;
+            color: var(--text-faint);
+        }
+
+        .note strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* ---------------- Calendar ---------------- */
+
+        .calendar {
+            margin-top: 1.1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            /* The Google embed is always light, so the frame stays light in both
+               themes rather than sitting as a bright rectangle on a dark page. */
+            background: #ffffff;
+            box-shadow: var(--shadow);
+        }
+
+        [data-theme="dark"] .calendar {
+            border-color: var(--border-strong);
+            padding: 6px;
+        }
+
+        .calendar iframe {
+            display: block;
+            width: 100%;
+            height: clamp(460px, 62vh, 640px);
+            border: none;
+            border-radius: 2px;
+        }
+
+        .calendar-fallback {
+            padding: 1.5rem;
+            font-size: 0.9375rem;
+            color: #545d6a;
+        }
+
+        /* ---------------- Location + QR ---------------- */
+
+        .split {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: clamp(1.5rem, 4vw, 3rem);
+            align-items: start;
+            margin-top: 1.1rem;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-bottom: 0.9rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+        }
+
+        .detail-list {
+            display: grid;
+            gap: 0.45rem;
+            margin-top: 1rem;
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+        }
+
+        .detail-list li {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .detail-list .label {
+            min-width: 5.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            padding-top: 0.25em;
+        }
+
+        .qr {
+            text-align: center;
+        }
+
+        .qr img {
+            display: block;
+            width: 148px;
+            height: 148px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: #fff;
+            padding: 8px;
+        }
+
+        .qr figcaption {
+            margin-top: 0.55rem;
+            font-size: 0.75rem;
+            color: var(--text-faint);
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ---------------- Footer ---------------- */
+
+        footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg-alt);
+            padding: 1.75rem clamp(1.25rem, 4vw, 2rem);
+        }
+
+        .footer-inner {
+            max-width: 880px;
+            margin-inline: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-faint);
+        }
+
+        /* ---------------- Responsive ---------------- */
+
+        @media (max-width: 640px) {
+            .split {
                 grid-template-columns: 1fr;
-                text-align: center;
+                justify-items: start;
             }
 
-            .qr img {
-                width: 110px;
-                height: 110px;
-            }
-
-            iframe {
-                height: 420px;
-            }
-
-            .toggle {
-                width: 44px;
-                height: 44px;
-                font-size: 1.2rem;
-                position: static;
-                margin: 2rem auto 0;
-                margin-right: 10px;
+            .header-link {
+                display: none;
             }
         }
 
+        @media (prefers-reduced-motion: reduce) {
 
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
 
-        @media (min-width: 481px) and (max-width: 1024px) {
-
-            header h1 {
-                font-size: 1.8rem;
+        /* A print of this page doubles as a notice for an office door. */
+        @media print {
+            :root {
+                --bg: #fff;
+                --bg-alt: #fff;
+                --surface: #fff;
+                --text: #000;
+                --text-muted: #333;
+                --text-faint: #555;
+                --border: #ccc;
+                --accent: #000;
             }
 
-            section {
-                padding: 1.6rem;
+            .site-header,
+            .intro-actions,
+            .calendar,
+            .note,
+            footer,
+            .skip-link {
+                display: none !important;
             }
 
-            .info-grid {
+            body {
+                background: #fff;
+            }
+
+            main {
+                padding-top: 0;
+            }
+
+            .panel {
+                border-top: none;
+                margin-top: 1.5rem;
+                padding-top: 0;
+            }
+
+            .split {
                 grid-template-columns: 1fr auto;
             }
 
             .qr img {
-                width: 130px;
-                height: 130px;
-            }
-
-            iframe {
-                height: 500px;
-            }
-        }
-
-
-
-        @media (min-width: 1025px) {
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            main {
-                max-width: 1000px;
-            }
-
-            section {
-                padding: 1.8rem;
-            }
-
-            iframe {
-                height: 600px;
+                width: 220px;
+                height: 220px;
             }
         }
     </style>
 </head>
 
 <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
 
-    <header>
-        <button class="toggle" id="themeToggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
-            🌙
-        </button>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="https://asifahmad.net">
+                <span class="brand-mark">AA</span>
+                <span>Asif Ahmad</span>
+            </a>
 
-        <h1>Meet Asif Ahmad</h1>
-        <p>Office Hours · Student Meetings · Availability</p>
-
+            <div class="header-actions">
+                <a class="header-link" href="https://asifahmad.net">Main site</a>
+                <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark theme">
+                    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4.2" />
+                        <path d="M12 2.4v2.4M12 19.2v2.4M4.22 4.22l1.7 1.7M18.08 18.08l1.7 1.7M2.4 12h2.4M19.2 12h2.4M4.22 19.78l1.7-1.7M18.08 5.92l1.7-1.7" />
+                    </svg>
+                    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
     </header>
-    
-    <main>
-        
-        <section>
-            <p>
-                This page provides my up-to-date office availability for student meetings,
-                academic discussions, and advising. Please consult the calendar below before
-                visiting my office.
+
+    <main id="main">
+        <section class="intro">
+            <p class="eyebrow">Availability</p>
+            <h1>Meet Asif Ahmad</h1>
+            <p class="lead">
+                This page is a live view of when I am free. It is the quickest way to find a
+                time to talk about research, potential collaborations, or anything else you
+                would like to discuss. Pick a slot that works for you and email me to confirm it.
             </p>
+
+            <div class="intro-actions">
+                <a class="btn btn-primary" href="mailto:asifahmedmaths@gmail.com?subject=Meeting%20request">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <path d="M3.6 6.2 12 12.6l8.4-6.4" />
+                    </svg>
+                    Request a meeting
+                </a>
+                <a class="btn btn-ghost" href="https://asifahmad.net">
+                    View my work
+                </a>
+            </div>
         </section>
 
-        
-        <section>
-            <h2>Availability</h2>
-            <p>The calendar below reflects my current availability.</p>
-            
-            <div class="calendar">
-                <iframe
-                src="https://calendar.google.com/calendar/embed?src=c390ee1819581e02cad1e60376611e9f5a56798b422b4cd624e0a2b78589fa04%40group.calendar.google.com&ctz=Asia%2FKarachi&showTitle=0&showPrint=0">
-            </iframe>
-        </div>
-    </section>
-    
-    <section>
-        <h2>Office Location</h2>
-        
-        <div class="info-grid">
-            <div>
-                <p>
-                    <strong>Office:</strong> Room G-24<br>
-                    <strong>Building:</strong> Faculty of Basic Sciences (FBS)<br>
-                    <strong>Institution:</strong> GIK Institute of Engineering Sciences & Technology
-                </p>
-                
-                <p>You may scan the QR code to quickly access this page from my office door.</p>
-            </div>
-            
-            <div class="qr">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://meet.asifahmad.net"
-                alt="QR code for meet.asifahmad.net">
-                <p>meet.asifahmad.net</p>
-            </div>
-        </div>
-    </section>
-        <div class="home-link">
-            <p>
-                Visit my personal webpage for more information about my teaching, research, and academic activities.
-                <a href="https://www.asifahmad.net">https://www.asifahmad.net</a>
+        <section class="panel" aria-labelledby="calendar-heading">
+            <h2 id="calendar-heading">Calendar</h2>
+            <p>Only a dedicated public calendar is shown here. It updates automatically, so it always reflects my current availability.</p>
+
+            <p class="note">
+                <span>Times shown in</span>
+                <strong id="tzLabel">your local timezone</strong>
             </p>
-        </div>
-    
-</main>
+
+            <div class="calendar">
+                <iframe id="calendarFrame" title="Public availability calendar for Asif Ahmad" loading="lazy"
+                    data-calendar="c390ee1819581e02cad1e60376611e9f5a56798b422b4cd624e0a2b78589fa04%40group.calendar.google.com"></iframe>
+                <noscript>
+                    <p class="calendar-fallback">
+                        The embedded calendar needs JavaScript.
+                        <a href="https://calendar.google.com/calendar/embed?src=c390ee1819581e02cad1e60376611e9f5a56798b422b4cd624e0a2b78589fa04%40group.calendar.google.com" target="_blank" rel="noopener">Open the calendar in a new tab</a>
+                        instead.
+                    </p>
+                </noscript>
+            </div>
+        </section>
+
+        <section class="panel" aria-labelledby="location-heading">
+            <h2 id="location-heading">Where to find me</h2>
+
+            <div class="split">
+                <div>
+                    <p class="status">Relocating</p>
+                    <p>
+                        From 21 September 2026 I will be based at the University of Leicester,
+                        United Kingdom, as a PhD researcher in Computer Science. Office and campus
+                        details will be published here once they are confirmed.
+                    </p>
+
+                    <ul class="detail-list">
+                        <li><span class="label">Until then</span><span>All meetings are held online.</span></li>
+                        <li><span class="label">Email</span><span><a href="mailto:asifahmedmaths@gmail.com">asifahmedmaths@gmail.com</a></span></li>
+                    </ul>
+                </div>
+
+                <figure class="qr">
+                    <img src="qr.svg" alt="QR code linking to meet.asifahmad.net" width="148" height="148">
+                    <figcaption>meet.asifahmad.net</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        © 2026 Asif Ahmad · <a href="https://www.asifahmad.net">www.asifahmad.net</a>
+        <div class="footer-inner">
+            <span>&copy; <span id="year">2026</span> Asif Ahmad</span>
+            <a href="https://asifahmad.net">asifahmad.net</a>
+        </div>
     </footer>
 
     <script>
-        const toggleBtn = document.getElementById("themeToggle");
-        const savedTheme = localStorage.getItem("theme");
+        (function () {
+            'use strict';
 
-        function applyTheme(isDark) {
-            document.body.classList.toggle("dark", isDark);
-            toggleBtn.textContent = isDark ? "☀️" : "🌙";
-        }
+            var root = document.documentElement;
 
-        // Initial load — LIGHT MODE DEFAULT
-        if (savedTheme === "dark") {
-            applyTheme(true);
-        } else {
-            applyTheme(false);
-        }
+            /* ---------------- Theme ---------------- */
 
+            var toggle = document.getElementById('themeToggle');
+            var systemDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-        function toggleDarkMode() {
-            const isDark = !document.body.classList.contains("dark");
-            applyTheme(isDark);
-            localStorage.setItem("theme", isDark ? "dark" : "light");
-        }
+            function syncLabel() {
+                var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                toggle.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+            }
+
+            function setTheme(theme, persist) {
+                root.setAttribute('data-theme', theme);
+                if (persist) {
+                    try { localStorage.setItem('theme', theme); } catch (e) { /* storage unavailable */ }
+                }
+                syncLabel();
+            }
+
+            syncLabel();
+
+            toggle.addEventListener('click', function () {
+                setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true);
+            });
+
+            systemDark.addEventListener('change', function (event) {
+                var stored = null;
+                try { stored = localStorage.getItem('theme'); } catch (e) { /* storage unavailable */ }
+                if (!stored) setTheme(event.matches ? 'dark' : 'light', false);
+            });
+
+            /* ---------------- Calendar ----------------
+               The embed is built here rather than in the markup so that times
+               render in whichever timezone the visitor is actually in. */
+
+            var frame = document.getElementById('calendarFrame');
+            var tzLabel = document.getElementById('tzLabel');
+
+            var tz = 'Europe/London';
+            try {
+                tz = Intl.DateTimeFormat().resolvedOptions().timeZone || tz;
+            } catch (e) { /* fall back to the default above */ }
+
+            if (frame) {
+                frame.src = 'https://calendar.google.com/calendar/embed'
+                    + '?src=' + frame.dataset.calendar
+                    + '&ctz=' + encodeURIComponent(tz)
+                    + '&mode=WEEK'
+                    + '&showTitle=0'
+                    + '&showPrint=0'
+                    + '&showCalendars=0';
+            }
+
+            if (tzLabel) {
+                tzLabel.textContent = tz.replace(/_/g, ' ');
+            }
+
+            /* ---------------- Misc ---------------- */
+
+            var year = document.getElementById('year');
+            if (year) year.textContent = String(new Date().getFullYear());
+        })();
     </script>
-
 </body>
 
 </html>
